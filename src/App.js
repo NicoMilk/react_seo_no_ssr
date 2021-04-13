@@ -2,7 +2,8 @@ import Home from './Components/Home';
 import Products from './Components/Products';
 import Contact from './Components/Contact';
 import Navbar from './Components/Navbar';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import Helmet from 'react-helmet';
 // import logo from './logo.svg';
 import './App.css';
 
@@ -27,10 +28,22 @@ const App = () => {
   
   <div className="App">
     <Router>
+      <Helmet>
+        <title>
+          Base page title by Helmet
+        </title>
+        <meta
+        name='description'
+        content='Composant super parent par Helmet'
+        />
+      </Helmet>
       <Navbar/>
+      <Switch>
         <Route path='/' exact component={Home}/>
         <Route path='/products' exact component={Products}/>
         <Route path='/contact' exact component={Contact}/>
+        <Route path='/' component={()=> <div>Oops, cette page n'existe pas...</div>}/>
+      </Switch>
     </Router>
   </div>
     );
