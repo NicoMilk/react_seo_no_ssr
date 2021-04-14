@@ -13,8 +13,14 @@ const Home = () => {
           Home page title by Helmet
         </title>
         <meta
+        name='title'
+        content='Home page title by Helmet'
+        data-react-helmet="true"
+        />
+        <meta
         name='description'
         content='Home page description by Helmet'
+        data-react-helmet="true"
         />
       </Helmet>
 

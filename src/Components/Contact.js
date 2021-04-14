@@ -9,8 +9,14 @@ const Contact = () => {
           Contact page title by Helmet
         </title>
         <meta
+        name='title'
+        content='Contact page title by Helmet'
+        data-react-helmet="true"
+        />
+        <meta
         name='description'
         content='Contact page description by Helmet'
+        data-react-helmet="true"
         />
       </Helmet>
 

@@ -11,8 +11,14 @@ const Products = () => {
           Products page title by Helmet
         </title>
         <meta
+        name='title'
+        content='Products page title by Helmet'
+        data-react-helmet="true"
+        />
+        <meta
         name='description'
         content='Products page description by Helmet'
+        data-react-helmet="true"
         />
       </Helmet>
       <h1>Section Produits</h1>

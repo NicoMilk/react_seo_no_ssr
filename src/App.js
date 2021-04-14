@@ -33,8 +33,13 @@ const App = () => {
           Base page title by Helmet
         </title>
         <meta
+        name="title"
+        content="Default Title"
+        data-react-helmet="true"/>
+        <meta
         name='description'
         content='Composant super parent par Helmet'
+        data-react-helmet="true"
         />
       </Helmet>
       <Navbar/>
