@@ -1,10 +1,31 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
 import Helmet from 'react-helmet';
 
 const Home = () => {
 
-  function handleClick () {
+  const [data,setData]=useState([]);
+  const getData=()=>{
+    fetch(`http://jsonplaceholder.typicode.com/posts?_limit=5`
+    ,{
+      headers : { 
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    }
+    )
+      .then(function(response){
+        // console.log('Response :', response)
+        return response.json();
+      })
+      .then(function(myJson) {
+        // console.log('MyJson :', myJson);
+        setData(myJson)
+      });
   }
+  useEffect(()=>{
+    getData()
+  },[])
 
   return(
     <div>
@@ -26,15 +47,14 @@ const Home = () => {
 
       <h1>Bonjour Monde !</h1>
       <p>ceci est la page d'accueil du site</p>
-      <div>
-        <button type="button" onClick={handleClick} style={{marginBottom:20}}>
-          Image suivante
-        </button>
-      </div>
 
-      <div>
-        <img src="https://source.unsplash.com/random/400x300" alt='unsplash random'/>
-      </div>
+      <ul>
+        {data.map(post =>
+        <Link to={{pathname:`/post/${post.id}`, state: { title: `${post.title}`, body: `${post.body}`}}}>
+          <li style={{listStyle:'none'}} key="{post.title}">{post.id} - {post.title}</li>      
+        </Link>
+        )}
+      </ul>
 
     </div>
   )
