@@ -3,9 +3,9 @@ import Helmet from 'react-helmet';
 import {useLocation} from "react-router-dom";
 import {Link} from 'react-router-dom';
 
-const PostShow = (title, body) => {
- let data = useLocation();
- console.log('PLOP :', data);
+const PostShow = () => {
+ const data = useLocation();
+//  console.log('DATA :', data)
 
   return (
     <div>
