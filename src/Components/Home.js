@@ -6,7 +6,7 @@ const Home = () => {
 
   const [data,setData]=useState([]);
   const getData=()=>{
-    fetch(`http://jsonplaceholder.typicode.com/posts?_limit=5`
+    fetch(`https://jsonplaceholder.typicode.com/posts?_limit=5`
     ,{
       headers : { 
         'Content-Type': 'application/json',
